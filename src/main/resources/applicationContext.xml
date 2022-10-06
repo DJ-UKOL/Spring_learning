@@ -20,7 +20,8 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="org.example.MusicPlayer">
+          class="org.example.MusicPlayer"
+          scope="prototype">
         <property name="musicList">
             <list>
                 <ref bean="musicBeanRap"/>
@@ -30,6 +31,7 @@
         </property>
         <property name="name" value="${musicPlayer.name}" />
         <property name="volume" value="${musicPlayer.volume}" />
+
     </bean>
 
 </beans>
