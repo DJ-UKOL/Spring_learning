@@ -1,16 +1,15 @@
 package org.example;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class TestSpring {
     public static void main(String[] args) {
-        // Обращаемся к конфигурационному файлу
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-                "applicationContext.xml"
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+                SpringConfig.class
         );
 
-//        Computer computer = context.getBean("computer", Computer.class);
-//        System.out.println(computer);
+        Computer computer = context.getBean("computer", Computer.class);
+        System.out.println(computer);
 
 
 /*        Music music = context.getBean("rockMusic", Music.class);
@@ -24,9 +23,7 @@ public class TestSpring {
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         System.out.println(musicPlayer.getName());
         System.out.println(musicPlayer.getVolume());
-
-        ClassicalMusic classicalMusic1 = context.getBean("classicalMusic", ClassicalMusic.class);
-
+        
         context.close();
     }
 }
